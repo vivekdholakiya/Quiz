@@ -44,38 +44,65 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 ds = snapshot.data.docs[index];
               }
               return snapshot.data.docs.length == index
-                  ? Center(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          markCount <= index / 2 - 1
-                              ? Column(
+                  ? Padding(
+                    padding: EdgeInsets.only(top: Get.height/5),
+                    child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            markCount <= index / 2 - 1
+                                ? Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                      children: [
+                                        Container(
+                                          child: Center(
+                                            child: Text(
+                                              "please prectise more and then try!!!!",
+                                              style: TextStyle(fontSize: 18),
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          child: Lottie.asset(
+                                            "assets/lottie/oops.json",
+                                          ),
+                                        ),
+                                        Container(
+                                          child: Center(
+                                            child: Text(
+                                              "You have archived $markCount mark on your ${Get.arguments["name"]} test",
+                                              style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                )
+                                : Column(
                                   children: [
                                     Container(
-                                      child: Lottie.asset(
-                                        "assets/lottie/oops.json",
+                                        height: 100,
+                                        width: 100,
+                                        child: Lottie.asset(
+                                          "assets/lottie/congo.json",
+                                        ),
                                       ),
-                                    ),
                                     Container(
                                       child: Center(
                                         child: Text(
                                           "You have archived $markCount mark on your ${Get.arguments["name"]} test",
-                                          style: TextStyle(fontSize: 24),
+                                          style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
                                         ),
                                       ),
-                                    )
+                                    ),
+
                                   ],
-                                )
-                              : Container(
-                                  height: 100,
-                                  width: 100,
-                                  child: Lottie.asset(
-                                    "assets/lottie/congo.json",
-                                  ),
-                                )
-                        ],
+                                ),
+                          ],
+                        ),
                       ),
-                    )
+                  )
                   : Container(
                       width: Get.width,
                       height: 200,
