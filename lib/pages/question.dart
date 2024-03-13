@@ -8,7 +8,7 @@ import 'package:quizapp/database/databasehelper.dart';
 import 'homescreen.dart';
 
 class QuestionScreen extends StatefulWidget {
-  late String category;
+  String category;
 
   QuestionScreen({super.key, required this.category});
 
